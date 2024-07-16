@@ -2,7 +2,11 @@
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 {% block page_title %}
-    Nova Tarefa
+     {% if todo.pk %}
+    	Editar Tarefa
+    {% else %}
+        Nova Tarefa
+    {% endif %}
 {% endblock page_title %}
 {% block content %}
     {% if todo.pk %}

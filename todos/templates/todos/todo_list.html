@@ -21,16 +21,20 @@
 
   {% for todo in todo_list %}
       <tr>
-          <th scope="row">{{ todos.pk }}</th>
+          <th scope="row">{{ todo.pk }}</th>
           <td>{{ todo.title }}</td>
           <td>{{ todo.created_at}}</td>
           <td>{{ todo.deadline }}</td>
           <td>{{ todo.finished_at  }}</td>
             <td>
-                <a href="#" class="btn btn-primary">Concluir</a>
+                <a href="{% url 'todo_complete' pk=todo.pk  %}" class="btn btn-primary{% if todo.finished_at %} disabled{% endif %}">Concluir</a>
             </td>
           <td>
-              <a href="#" class="btn btn-danger">Excluir</a>
+              <a href="{% url 'todo_delete' pk=todo.pk%}" class="btn btn-danger ">Excluir</a>
+            </td>
+        <td>
+            <a href="{% url 'todo_update' pk=todo.pk %}" class="btn btn-dark {% if todo.finished_at %} disabled{% endif %}">Editar</a>
+        </td>
       
       </tr>
 
