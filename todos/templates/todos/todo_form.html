@@ -9,8 +9,7 @@
     	<h1>Editar Tarefa</h1>
     {% else %}
         <h1>Nova Tarefa</h1>
-    {% endif %} 
-    <h1>Nova tarefa</h1>
+    {% endif %}
     <form method="post">
     {% csrf_token %}
     {{ form |crispy }}
